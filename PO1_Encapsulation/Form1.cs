@@ -26,23 +26,32 @@ namespace PO1_Encapsulation
 
         private void btn_attaquer_Click(object sender, EventArgs e)
         {
-            dragon.PointDevie -= joueur.PointDePuissance; 
+            TourDragon();
+            dragon.PointDevie -= joueur.PointDePuissance;
             ActualiserLabels();
         }
 
         private void btn_seSoigner_Click(object sender, EventArgs e)
         {
+            joueur.PointDevie += 5;
+            TourDragon();
             ActualiserLabels();
         }
 
         private void btn_puissanceAttaque_Click(object sender, EventArgs e)
         {
+            joueur.PointDePuissance++;
+            TourDragon();
             ActualiserLabels();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             ActualiserLabels();
+        }
+        private void TourDragon()
+        {
+            joueur.PointDevie -= dragon.PointDePuissance;
         }
     }
 }
